@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>login</title>
+</head>
+<body>
+	<form action="selfsubmission.jsp">
+<label>username</label><input type="text" id="user"></br></br>
+<label>password</label><input type="text" id="pass"></br></br>
+<button type ="submit" id="bb">login</button>
+</form>
+<script>
+	var user=document.getElementById("user").value;
+	var pass=document.getElementById("pass").value;
+	var xx=new XMLHttpRequest();
+	xx.open("GET","Loginservlet?username="+user+"&password="+pass,true);
+	xx.onreadystatechange=function(){
+		if(xx.readyState===4 && xx.status===200){
+			var nn=xx.responseText;
+			console.log(nn);
+		} 
+	}
+	xx.send();
+</script>
+	
+</body>
+</html>
